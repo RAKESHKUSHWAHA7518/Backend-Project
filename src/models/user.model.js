@@ -7,7 +7,7 @@
 
   const userSchema = new Schema({
     username :{
-        type: string,
+        type: String,
         required: true,
         lowercase: true,
         trim: true,
@@ -15,7 +15,7 @@
     },
      
     email :{
-        type: string,
+        type: String,
         required: true,
         lowercase: true,
         trim: true,
@@ -23,7 +23,7 @@
     },
 
     fullname :{
-        type: string,
+        type: String,
         required: true,
          
         trim: true,
@@ -31,13 +31,13 @@
     },
 
     avatar    :{
-        type: string,
+        type: String,
         required: true,
          
     },
 
     coverImage:{
-        type: string,
+        type: String,
     },
 
      watchHistory:[
@@ -47,7 +47,7 @@
         }
      ],
 
-     passwork :{
+     password :{
         type: String,
         required: [true, 'password  is required']
      },

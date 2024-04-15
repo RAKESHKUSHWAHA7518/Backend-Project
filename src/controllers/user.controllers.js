@@ -37,7 +37,7 @@
      throw new ApiError(400,"All fields are required")
         }
 
-       const exitedUser=  User.findOne({
+       const exitedUser= await  User.findOne({
             $or:[{username},{email}]
         })
 
@@ -45,9 +45,18 @@
             throw new ApiError(409," user already exists")
         }
 
+         console.log( req.files)
 
       const avatarLocalPath=   req.files?.avatar[0]?.path;
-      const coverImageLocalPath= req.files?.coverImage[0]?.path;
+    //   const coverImageLocalPath= req.files?.coverImage[0]?.path;
+
+      let coverImageLocalPath ;
+      if(req.files && Array.isArray(req.files.coverImage)&& req.files.coverImage.length>0){
+
+        coverImageLocalPath = req.files.coverImage[0].path
+
+      }
+
 
 
       if(!avatarLocalPath){
